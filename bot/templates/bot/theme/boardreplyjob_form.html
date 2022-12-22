@@ -1,0 +1,47 @@
+{% extends 'bot/theme/index.html' %}
+
+{% block main %}
+
+
+<div class="container">
+
+    <!-- Outer Row -->
+    <div class="row justify-content-center"> 
+	  <div class="text-center">
+	    <h1 class="h4 text-gray-900 mb-4">Add Board Job</h1>
+	  </div>
+		</div>
+	  <form class="user" action='/jobs/bj/add/' method='POST'>
+		  {% csrf_token %}
+				      <div class="col-auto">
+                    <div class="form-group">
+			 		      <input type="text" class="form-control" name="board_name" placeholder="Board name" required>
+		      	
+                    </div>
+	</div>
+	<div class="col-auto">
+                    <div class="form-group">
+				      <input type="text" class="form-control" name="board_uri" placeholder="Board Uri" required>
+		      	
+                    </div>
+	</div>
+	<div class="col-auto">
+                    <div class="form-group">
+					      <textarea class="form-control" name="reply" rows="20" placeholder="Reply" required></textarea>
+		      	
+                    </div>
+	</div>
+
+
+		    <div class="col-auto">
+                <button type="submit" class="btn btn-primary btn-user btn-block">
+                      Add
+		</button>
+		    </div>
+                                      </form>
+                </div>
+              </div>
+
+
+
+{% endblock %}

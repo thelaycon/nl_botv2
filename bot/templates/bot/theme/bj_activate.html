@@ -1,0 +1,63 @@
+{% extends 'bot/theme/index.html' %}
+
+{% block main %}
+
+
+<div class="container">
+
+    <!-- Outer Row -->
+    <div class="row justify-content-center">
+
+      <div class="col-xl-10 col-lg-12 col-md-9">
+
+<div class="card o-hidden border-0 shadow-lg my-5">
+  <div class="card-body p-0">
+    <!-- Nested Row within Card Body -->
+    <div class="row">
+	<div class="p-5">
+		<div class="col-auto">
+	  <div class="text-center">
+		  <p><strong>It may take a while</strong></p>
+		  
+		  <h1 class="h4 text-gray-900 mb-4">Activate  {{ board_job.board_name }} Job</h1>
+	  </div>
+		</div>
+		<form class="user" action='/jobs/bj/{{ board_job.pk }}/activate/' method='POST'>
+		  {% csrf_token %}
+				      <div class="col-auto">
+                    <div class="form-group">
+					      <input type="number" class="form-control" name="minutes" placeholder="Minutes Interval" required>
+		      	
+                    </div>
+	</div>
+	<div class="col-auto">
+                    <div class="form-group">
+					      <select class="form-control" name="nl_account_pk" required>
+			      {% for nl_account in nl_accounts %}
+			      <option value="{{ nl_account.pk }}">{{ nl_account.username }}</option>
+			      {% endfor %}
+		      </select>
+                    </div>
+	</div>
+
+		    <div class="col-auto">
+                <button type="submit" class="btn btn-primary btn-user btn-block">
+                      Activate
+		</button>
+		    </div>
+                                      </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+{% endblock %}

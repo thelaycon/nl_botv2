@@ -1,0 +1,49 @@
+{% extends 'bot/theme/index.html' %}
+
+{% block main %}
+
+
+<div class="container">
+
+    <!-- Outer Row -->
+    <div class="row justify-content-center">
+
+        <div class="text-center">
+	    <h1 class="h4 text-gray-900 mb-4">Edit Board Job</h1>
+	  </div>
+		</div>
+		<form class="user" action='/jobs/bj/{{ object.pk }}/edit/' method='POST'>
+		  {% csrf_token %}
+				      <div class="col-auto">
+                    <div class="form-group">
+					      <input type="text" class="form-control" name="board_name" value="{{ object.board_name }}" required>
+		      	
+                    </div>
+	</div>
+	<div class="col-auto">
+                    <div class="form-group">
+				      <input type="text" class="form-control" name="board_uri" value="{{ object.board_uri }}" required>
+		      	
+                    </div>
+	</div>
+	<div class="col-auto">
+                    <div class="form-group">
+			
+		      <textarea class="form-control" name="reply" rows="20" required>{{ object.reply }}</textarea>
+		      	
+                    </div>
+	</div>
+
+
+		    <div class="col-auto">
+                <button type="submit" class="btn btn-primary btn-user btn-block">
+                      Update
+		</button>
+		    </div>
+                                      </form>
+                </div>
+              </div>
+
+
+
+{% endblock %}

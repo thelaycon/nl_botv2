@@ -1,0 +1,54 @@
+{% extends 'bot/theme/index.html' %}
+
+{% block main %}
+
+
+<div class="container">
+
+    <!-- Outer Row -->
+    <div class="row justify-content-center">
+
+	  <div class="text-center">
+	    <h1 class="h4 text-gray-900 mb-4">Edit Thread Job</h1>
+	  </div>
+		</div>
+		<form class="user" action='/jobs/td/{{ object.pk }}/edit/' method='POST'>
+		  {% csrf_token %}
+				      <div class="col-auto">
+                    <div class="form-group">
+			 		      <input type="text" class="form-control" name="thread_title" value="{{ object.thread_title }}" required>
+		      	
+                    </div>
+	</div>
+	
+	<div class="col-auto">
+                    <div class="form-group">
+			 		      <input type="number" class="form-control" name="topic_code" value="{{ object.topic_code }}" required>
+		      	
+                    </div>
+	</div>
+
+
+
+
+
+	<div class="col-auto">
+                    <div class="form-group">
+			 		      <textarea class="form-control" name="reply" rows="20" required>{{ object.reply }}</textarea>
+		      	
+                    </div>
+	</div>
+
+
+		    <div class="col-auto">
+                <button type="submit" class="btn btn-primary btn-user btn-block">
+                      Update
+		</button>
+		    </div>
+                                      </form>
+                </div>
+              </div>
+
+
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'bot/theme/index.html' %}
+
+{% block main %}
+
+
+<div class="container">
+	    <!-- Outer Row -->
+    <div class="row justify-content-center">
+
+	  <div class="text-center">
+	    <h1 class="h4 text-gray-900 mb-4">Update License Key</h1>
+	  </div>
+	  <form class="user" action='/license/' method='POST'>
+		  {% csrf_token %}
+                    <div class="form-group">
+			    <textarea class="form-control" rows="10" name="key" required>License key</textarea>
+                    </div>
+		                        <button type="submit" class="btn btn-primary btn-user btn-block">
+                      Update
+                    </a>
+                                      </form>
+                </div>
+              </div>
+            
+
+
+
+{% endblock %}
